@@ -1,2 +1,3 @@
 xarray
 matplotlib
+netcdf4
