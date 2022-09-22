@@ -1,0 +1,43 @@
+NB_LAB,LCCOwnLabel,R,G,B,HEX_COL
+10,"Cropland, rainfed",255,255,100,#ffff64
+11,Herbaceous cover,255,255,100,#ffff64
+12,Tree or shrub cover,255,255,0,#ffff00
+20,"Cropland, irrigated or post-flooding",170,240,240,#aaf0f0
+30,"Mosaic cropland (>50%) / natural vegetation (tree, shrub, herbaceous cover) (<50%)",220,240,100,#dcf064
+40,"Mosaic natural vegetation (tree, shrub, herbaceous cover) (>50%) / cropland (<50%) ",200,200,100,#c8c864
+50,"Tree cover, broadleaved, evergreen, closed to open (>15%)",0,100,0,#006400
+60,"Tree cover, broadleaved, deciduous, closed to open (>15%)",0,160,0,#00a000
+61,"Tree cover, broadleaved, deciduous, closed (>40%)",0,160,0,#00a000
+62,"Tree cover, broadleaved, deciduous, open (15-40%)",170,200,0,#aac800
+70,"Tree cover, needleleaved, evergreen, closed to open (>15%)",0,60,0,#003c00
+71,"Tree cover, needleleaved, evergreen, closed (>40%)",0,60,0,#003c00
+72,"Tree cover, needleleaved, evergreen, open (15-40%)",0,80,0,#005000
+80,"Tree cover, needleleaved, deciduous, closed to open (>15%)",40,80,0,#285000
+81,"Tree cover, needleleaved, deciduous, closed (>40%)",40,80,0,#285000
+82,"Tree cover, needleleaved, deciduous, open (15-40%)",40,100,0,#286400
+90,"Tree cover, mixed leaf type (broadleaved and needleleaved)",120,130,0,#788200
+100,Mosaic tree and shrub (>50%) / herbaceous cover (<50%),140,160,0,#8ca000
+110,Mosaic herbaceous cover (>50%) / tree and shrub (<50%),190,150,0,#be9600
+120,Shrubland,150,100,0,#966400
+121,Shrubland evergreen,120,75,0,#784b00
+122,Shrubland deciduous,150,100,0,#966400
+130,Grassland,255,180,50,#ffb432
+140,Lichens and mosses,255,220,210,#ffdcd2
+150,"Sparse vegetation (tree, shrub, herbaceous cover) (<15%)",255,235,175,#ffebaf
+151,Sparse tree (<15%),255,200,100,#ffc864
+152,Sparse shrub (<15%),255,210,120,#ffd278
+153,Sparse herbaceous cover (<15%),255,235,175,#ffebaf
+160,"Tree cover, flooded, fresh or brakish water",0,120,90,#00785a
+170,"Tree cover, flooded, saline water",0,150,120,#009678
+180,"Shrub or herbaceous cover, flooded, fresh/saline/brakish water",0,220,130,#00dc82
+190,Urban areas,195,20,0,#c31400
+200,Bare_areas_of_soil_types_not_contained_in_biomes_21_to_25,255,245,215,#fff5d7
+201,Unconsolidated_bare_areas_of_soil_types_not_contained_in_biomes_21_to_25,220,220,220,#dcdcdc
+202,Consolidated_bare_areas_of_soil_types_not_contained_in_biomes_21_to_25,255,245,215,#fff5d7
+203,Bare_areas_of_soil_type_Entisols_Orthents,220,235,215,#dcebd7
+204,Bare_areas_of_soil_type_Shifting_sand,220,240,215,#dcf0d7
+205,Bare_areas_of_soil_type_Aridisols_Calcids,220,245,215,#dcf5d7
+206,Bare_areas_of_soil_type_Aridisols_Cambids,220,250,215,#dcfad7
+207,Bare_areas_of_soil_type_Gelisols_Orthels,220,255,215,#dcffd7
+210,Water bodies,0,70,200,#0046c8
+220,Permanent snow and ice,255,255,255,#ffffff
