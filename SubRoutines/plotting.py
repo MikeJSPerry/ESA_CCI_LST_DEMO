@@ -109,6 +109,16 @@ class lccs_manger:
             data.append(idx_data[~np.isnan(idx_data)])
         self.lcc_binned_lst = data
 
+    def bin_sfc_unc_by_lcc(self):
+        indexes = np.digitize(self.ds.lcc.values, bins=self.ds.lcc.attrs["flag_values"])
+        data = []
+        for idx in np.unique(indexes):
+            idx_data = np.where(
+                indexes == idx, self.ds.lst_unc_loc_sfc.squeeze().values, np.nan
+            )
+            data.append(idx_data[~np.isnan(idx_data)])
+        self.lcc_binned_unc_loc_sfc = data
+
     def box_plot(self):
         fig, ax = plt.subplots(figsize=(6, 10))
         bplot = ax.boxplot(self.lcc_binned_lst, vert=False, patch_artist=True)
@@ -117,6 +127,19 @@ class lccs_manger:
         )
         ax.set_yticklabels(self.plotting_info["labels"][:-1])
         ax.set_xlabel("Land Surface Temperature (K)")
+        for patch, color in zip(bplot["boxes"], self.plotting_info["colours"]):
+            patch.set_facecolor(color)
+
+    def unc_box_plot(self):
+        fig, ax = plt.subplots(figsize=(6, 10))
+        bplot = ax.boxplot(self.lcc_binned_unc_loc_sfc, vert=False, patch_artist=True)
+        ax.set_yticks(
+            [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+        )
+        ax.set_yticklabels(self.plotting_info["labels"][:-1])
+        ax.set_xlabel(
+            "Land Surface Temperature Locally Correlated Surface Uncertainty (K)"
+        )
         for patch, color in zip(bplot["boxes"], self.plotting_info["colours"]):
             patch.set_facecolor(color)
 
