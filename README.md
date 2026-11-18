@@ -13,6 +13,11 @@ Short Jupyter notebooks showing how to read, plot and explore data from the ESA 
 
 Start with `example_reader.ipynb`.
 
+## Authors
+
+- `example_reader.ipynb`: Michael Perry and Karen Veal (University of Leicester).
+- `example_uncertainty.ipynb`: Michael Perry (University of Leicester) and Claire Bulgin (University of Reading).
+
 ## The data
 
 The `Data/` folder holds two small monthly Level-3C (L3C) daytime files from MODIS Aqua (product version 3.00), chosen to keep the repository small:
@@ -22,7 +27,7 @@ The `Data/` folder holds two small monthly Level-3C (L3C) daytime files from MOD
 
 `ESACCI_LC_Legend_LST_UPDATE.csv` gives the names and colours of the land cover classes.
 
-These files are only samples. For more data, including other sensors, dates and resolutions, see the [ESA Climate Change Initiative](https://climate.esa.int) website.
+These files are only samples. For more data, including other sensors, dates and resolutions, see the [ESA CCI Land Surface Temperature project page](https://climate.esa.int/en/projects/land-surface-temperature).
 
 ## Running locally
 
