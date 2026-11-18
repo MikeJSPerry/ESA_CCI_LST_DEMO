@@ -8,14 +8,15 @@ def rgb2hex(r, g, b):
     return f"#{r:02x}{g:02x}{b:02x}"
 
 
-def pannel_plot(ds, lat_region, lon_region):
+def pannel_plot(ds):
+    """Map each uncertainty component of ``ds`` (e.g. a region selected with ``.sel``)."""
     f, ax = plt.subplots(2, 2, figsize=(24, 12))
-    ds.lst_unc_sys.isel(lat=lat_region, lon=lon_region).plot(ax=ax[0, 0], robust=True)
-    ds.lst_unc_ran.isel(lat=lat_region, lon=lon_region).plot(ax=ax[0, 1], robust=True)
-    ds.lst_unc_loc_atm.isel(lat=lat_region, lon=lon_region).plot(
+    ds.lst_unc_sys.plot(ax=ax[0, 0], robust=True)
+    ds.lst_unc_ran.plot(ax=ax[0, 1], robust=True)
+    ds.lst_unc_loc_atm.plot(
         ax=ax[1, 0], robust=True
     )
-    ds.lst_unc_loc_sfc.isel(lat=lat_region, lon=lon_region).plot(
+    ds.lst_unc_loc_sfc.plot(
         ax=ax[1, 1], robust=True
     )
     f.tight_layout
@@ -24,18 +25,19 @@ def pannel_plot(ds, lat_region, lon_region):
             ax[i, j].set_title("")
 
 
-def pannel_hist(ds, lat_region, lon_region):
+def pannel_hist(ds):
+    """Histogram each uncertainty component of ``ds`` (e.g. a region selected with ``.sel``)."""
     f, ax = plt.subplots(2, 2, figsize=(24, 12))
-    ds.lst_unc_sys.isel(lat=lat_region, lon=lon_region).plot.hist(
+    ds.lst_unc_sys.plot.hist(
         ax=ax[0, 0], bins=50, alpha=0.5, color="steelblue", edgecolor="grey"
     )
-    ds.lst_unc_ran.isel(lat=lat_region, lon=lon_region).plot.hist(
+    ds.lst_unc_ran.plot.hist(
         ax=ax[0, 1], bins=50, alpha=0.5, color="steelblue", edgecolor="grey"
     )
-    ds.lst_unc_loc_atm.isel(lat=lat_region, lon=lon_region).plot.hist(
+    ds.lst_unc_loc_atm.plot.hist(
         ax=ax[1, 0], bins=50, alpha=0.5, color="steelblue", edgecolor="grey"
     )
-    ds.lst_unc_loc_sfc.isel(lat=lat_region, lon=lon_region).plot.hist(
+    ds.lst_unc_loc_sfc.plot.hist(
         ax=ax[1, 1], bins=50, alpha=0.5, color="steelblue", edgecolor="grey"
     )
     f.tight_layout
@@ -44,7 +46,7 @@ def pannel_hist(ds, lat_region, lon_region):
             ax[i, j].set_title("")
 
 
-class lccs_manger:
+class LccsManager:
     def __init__(self, ds) -> None:
         self.ds = ds
         self.legend = pd.read_csv("Data/ESACCI_LC_Legend_LST_UPDATE.csv")
@@ -121,7 +123,9 @@ class lccs_manger:
 
     def box_plot(self):
         fig, ax = plt.subplots(figsize=(6, 10))
-        bplot = ax.boxplot(self.lcc_binned_lst, vert=False, patch_artist=True)
+        bplot = ax.boxplot(
+            self.lcc_binned_lst, orientation="horizontal", patch_artist=True
+        )
         ax.set_yticks(
             [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
         )
@@ -132,7 +136,9 @@ class lccs_manger:
 
     def unc_box_plot(self):
         fig, ax = plt.subplots(figsize=(6, 10))
-        bplot = ax.boxplot(self.lcc_binned_unc_loc_sfc, vert=False, patch_artist=True)
+        bplot = ax.boxplot(
+            self.lcc_binned_unc_loc_sfc, orientation="horizontal", patch_artist=True
+        )
         ax.set_yticks(
             [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
         )
@@ -146,7 +152,10 @@ class lccs_manger:
     def volin_plot(self):
         fig, ax = plt.subplots(figsize=(6, 10))
         vplot = ax.violinplot(
-            self.lcc_binned_lst, vert=False, showextrema=False, showmedians=True
+            self.lcc_binned_lst,
+            orientation="horizontal",
+            showextrema=False,
+            showmedians=True,
         )
         ax.set_yticks(
             [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
